@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<style>
-.border {
-    stroke: white;
-    fill: none;
-}
 
-.county {
-    stroke: white;
-    stroke-width: 1;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .border {
+        stroke: white;
+        fill: none;
+    }
 
-div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 350px;
-    height: 100px;
-    padding: 2px;
-    font-size: 36px;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-}
-</style>
+    .county {
+        stroke: white;
+        stroke-width: 1;
+    }
+
+    div.tooltip {
+        position: absolute;
+        text-align: center;
+        width: 350px;
+        height: 100px;
+        padding: 2px;
+        font-size: 36px;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+    </style>
+</head>
 <svg width="960" height="960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -114,7 +122,7 @@ function ready(error, county, town, village) {
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html(d.properties.name + "<br/>" + d.properties.pop)
+                    div.html(d.properties.name + "<br/>" + d.properties.pop + "人/km²")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                 })
